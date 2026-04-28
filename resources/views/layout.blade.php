@@ -1,4 +1,3 @@
-{{-- resources/views/layout.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,29 +13,28 @@
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
   position: fixed;
   height: 100%;
   overflow: auto;
 }
-
 /* Sidebar links */
 .sidebar a {
   display: block;
-  color: black;
+  color: #e0e0e0;        /* light gray instead of black */
   padding: 16px;
   text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #04AA6D;
+  background-color: rgba(255, 255, 255, 0.379);
   color: white;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
 }
 
@@ -73,7 +71,7 @@ div.content {
             <div class="col-md-12">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><h2>Student Management project</h2></a>
+                    <a class="navbar-brand font-monospace" href="#"><h2>Student Management project</h2></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -87,17 +85,19 @@ div.content {
             <div class="col-md-3">
                 <!-- The sidebar -->
                 <div class="sidebar">
-                    <a class="active" href="#home">Home</a>
-                    <a href="#news">News</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#about">About</a>
+                    <a {{ request()->is('/') ? 'class=active' : '' }} href="{{ url('/') }}">Home</a>
+                    <a {{ request()->is('students*') ? 'class=active' : '' }} href="{{ url('/students') }}">Student</a>
+                    <a {{ request()->is('teachers*') ? 'class=active' : '' }} href="{{ url('/teachers') }}">Teacher</a>
+                    <a {{ request()->is('courses*') ? 'class=active' : '' }} href="#courses">Courses</a>
+                    <a {{ request()->is('enrollment*') ? 'class=active' : '' }} href="#enrollment">Enrollment</a>
+                    <a {{ request()->is('payment*') ? 'class=active' : '' }} href="#payment">Payment</a>
+                    <a href="#payment">User Details</a>
                 </div>
             </div>
             <div class="col-md-9">
-                <!-- Page content -->
-                <div class="content">
+              
                     @yield('content')
-                </div>
+                
             </div>
         </div>
     </div>
