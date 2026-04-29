@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('enrollments', function (Blueprint $table) {
+            $table->string('enroll_no')->nullable();
+            $table->date('join_date')->nullable();
+            $table->decimal('fee', 10, 2)->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('enrollments', function (Blueprint $table) {
+            $table->dropColumn(['enroll_no', 'join_date', 'fee']);
+        });
+    }
+};

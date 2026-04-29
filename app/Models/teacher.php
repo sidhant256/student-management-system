@@ -6,15 +6,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class student extends Model
+class Teacher extends Model
 {
-    protected $table = 'students';
+    protected $table = 'teachers';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'address', 'mobile'];
-    protected $casts = [
-        // 'is_active' => 'boolean',   // converts 0/1 from DB into true/false in PHP
-        // 'birthday'  => 'date',
-    ];
+    protected $casts = [];
 
     use HasFactory;
 }

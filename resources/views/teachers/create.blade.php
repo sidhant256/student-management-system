@@ -1,18 +1,17 @@
 @extends('layout')
 @section('content')
 
-
 <div class="card">
-    <div class="card-header text-center fs-5 fw-bold">Students Page</div>
+    <div class="card-header text-center fs-5 fw-bold">Teachers Page</div>
     <div class="card-body">
-        <a href="{{ url('students') }}" class="btn btn-sm rounded-pill" title="Add New teachers" style="background: linear-gradient(135deg, #4776e6 0%, #0f3460 100%); 
+        <a href="{{ url('teachers') }}" class="btn btn-sm rounded-pill" title="Add New teachers" style="background: linear-gradient(135deg, #4776e6 0%, #0f3460 100%); 
                                       color: white; 
                                       border: none;
                                       box-shadow: 0 2px 8px rgba(71, 118, 230, 0.4);">
             <i class="fa fa-plus" aria-hidden="true"></i> 🔙 Back
         </a>
 
-        <form action="{{ url('students') }}" method="post">
+        <form action="{{ url('teachers') }}" method="post">
             {!! csrf_field() !!}
             <label>Name</label></br>
             <input type="text" name="name" id="name" class="form-control"></br>

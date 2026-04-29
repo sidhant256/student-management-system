@@ -8,7 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 
-class studentcontroller extends Controller
+class StudentController extends Controller
 {
     public function index(): View
     { 
@@ -48,7 +48,7 @@ class studentcontroller extends Controller
         $students = student::find($id);
         $input = $request->all();
         $students->update($input);
-        return redirect('students')->with('flash message', 'student Updated!');
+        return redirect('students')->with('flash_message', 'student Updated!');
 
     }
 

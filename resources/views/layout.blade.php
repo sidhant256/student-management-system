@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Student Management</title>
+    <title>School Management</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/aabc.png') }}">
     <style>
             /* The side navigation menu */
 .sidebar {
@@ -17,6 +18,7 @@
   position: fixed;
   height: 100%;
   overflow: auto;
+  font-weight: normal;
 }
 /* Sidebar links */
 .sidebar a {
@@ -41,7 +43,7 @@
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
   margin-left: 200px;
-  padding: 1px 16px;
+  padding: 10px 16px;
   height: 1000px;
 }
 
@@ -71,7 +73,11 @@ div.content {
             <div class="col-md-12">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand font-monospace" href="#"><h2>Student Management project</h2></a>
+                    {{-- <a class="navbar-brand font-monospace" href="{{ url('/') }}"><h3>Student Management</h3></a> --}}
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
+                      <img src="{{ asset('images/logo.png') }}" alt="ellucian logo" width="190" height="90">
+                      <span class="fw-bold"><h3>School Management</h3></span>
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -88,16 +94,15 @@ div.content {
                     <a {{ request()->is('/') ? 'class=active' : '' }} href="{{ url('/') }}">Home</a>
                     <a {{ request()->is('students*') ? 'class=active' : '' }} href="{{ url('/students') }}">Student</a>
                     <a {{ request()->is('teachers*') ? 'class=active' : '' }} href="{{ url('/teachers') }}">Teacher</a>
-                    <a {{ request()->is('courses*') ? 'class=active' : '' }} href="#courses">Courses</a>
-                    <a {{ request()->is('enrollment*') ? 'class=active' : '' }} href="#enrollment">Enrollment</a>
+                    <a {{ request()->is('courses*') ? 'class=active' : '' }} href="{{ url('/courses') }}">Courses</a>
+                    <a {{ request()->is('batches*') ? 'class=active' : '' }} href="{{ url('/batches') }}">Batches</a>
+                    <a {{ request()->is('enrollment*') ? 'class=active' : '' }} href="{{ url('/enrollments') }}">Enrollment</a>
                     <a {{ request()->is('payment*') ? 'class=active' : '' }} href="#payment">Payment</a>
                     <a href="#payment">User Details</a>
                 </div>
             </div>
             <div class="col-md-9">
-              
-                    @yield('content')
-                
+                @yield('content')
             </div>
         </div>
     </div>
