@@ -97,8 +97,7 @@ div.content {
                     <a {{ request()->is('courses*') ? 'class=active' : '' }} href="{{ url('/courses') }}">Courses</a>
                     <a {{ request()->is('batches*') ? 'class=active' : '' }} href="{{ url('/batches') }}">Batches</a>
                     <a {{ request()->is('enrollment*') ? 'class=active' : '' }} href="{{ url('/enrollments') }}">Enrollment</a>
-                    <a {{ request()->is('payment*') ? 'class=active' : '' }} href="#payment">Payment</a>
-                    <a href="#payment">User Details</a>
+                    <a {{ request()->is('payment*') ? 'class=active' : '' }} href="{{ url('/payments') }}">Payment</a>
                 </div>
             </div>
             <div class="col-md-9">

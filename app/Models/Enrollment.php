@@ -13,4 +13,14 @@ class Enrollment extends Model
     protected $casts = [];
 
     use HasFactory;
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
+    }
 }
